@@ -6,8 +6,10 @@
 # XMP metadata using Python XMP Toolkit.
 #
 
-# This is the schema used when extracting metadata from files and saving values to a csv output file.
-# Keys are a xmp prefix (uri) and values are lists of tuples containing property names and value forms.
+# This is the schema used when reading (extracting) metadata from files and saving values to a csv output file.
+# This same schema is used to import metadata from a csv input file. The csv columns must be in the
+# "prefix:property" format and the pairings must be defined in this schema.
+# The schema dictionary keys are a xmp prefix and values are dictionaries pairing property names with their value forms.
 SCHEMA = {"xmp": {"CreateDate": "simple",
                   "CreatorTool": "simple",
                   "Label": "simple",
