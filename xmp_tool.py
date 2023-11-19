@@ -147,11 +147,5 @@ def main(args):
     return
 
 
-if __name__ == '__main__':
-    files = "/Users/peterjakubowski/Desktop/Jupyter/xmp_metadata/flickr_images/testing-folder/self-portrait_3436017007_o.jpg"
-    json_files = "/Users/peterjakubowski/Desktop/Jupyter/xmp_metadata/flickr_images/72157722157501131_c37d918a7b89_part1"
-    # main(["-p", files, "-f", json_files, "-r"])
-    # main(["-p", files, "-i", "xmp_metadata.csv", "-w", "-r"])
-    # main(["-p", files, "-f", json_files, "-r"])
-    #
+if __name__ == '__main__':s
     main(sys.argv[1:])
