@@ -253,7 +253,7 @@ class Asset:
         """
         Merges metadata provided in a csv file with the file's xmp metadata.
         :param metadata: Dictionary, metadata from csv file where keys are the
-        XMP namespace and property name formatted like "ns:property"
+        XMP prefix and property name formatted like "prefix:property"
         """
 
         # iterate over the items in dictionary
@@ -322,7 +322,7 @@ class Asset:
     def retrieve_xmp_metadata(self):
         """
         Retrieves metadata values from xmp packet. Utilizes the SCHEMA dictionary
-        of xmp namespaces and property names to extract specific values.
+        of xmp prefixes and property names to extract specific values.
         :return: list of metadata values from properties defined in SCHEMA
         """
 
