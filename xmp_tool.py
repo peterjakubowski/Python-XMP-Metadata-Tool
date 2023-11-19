@@ -121,7 +121,7 @@ def main(args):
         # provided the --read flag, we should save a csv file with the
         # xmp metadata. we won't save all the xmp metadata, only the
         # fields/namespaces that we define or provide. Refer to SCHEMA
-        # for xmp metadata namespaces and property names.
+        # for xmp metadata prefixes and property names.
         if args.read:
             # gather all the metadata in a list
             data = []
