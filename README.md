@@ -10,6 +10,16 @@ One of the primary purposes of this program is to facilitate data migration from
 
 ## What is XMP metadata?
 
+The [Adobe Extensible Metadata Platform (XMP)](https://www.adobe.com/products/xmp) specification describes a widely used method for embedding descriptive metadata within images. XMP tags are stored within the image header of all common image formats (JPEG, TIFF, PNG, GIF, PSD) and can be read by popular image processing and cataloging packages. The XMP standard is also widely used by photographers and the publication industry. Users of consumer and professional digital cameras may already be familiar with Exchangeable Image File Format (EXIF) metadata tags that include camera and exposure information within the digital photo file as a set of XMP tags. In practice an XMP header is a block of XML text included in the header block of the image file and is only supported in image types with header/comment blocks.
+
+The advantages of embedded image identity metadata are numerous. Including metadata effectively makes the images self-documenting, which is particularly useful when the source URL for an image is lost. This information can now be accessed by multimedia management packages, or indexed by databases designed to read the embedded information. For instance, an online or desktop planetarium program could load an image from the web and extract the appropriate metadata to place it in the proper position in the sky.
+
+## Python XMP Toolkit
+
+[Python XMP Toolkit](https://python-xmp-toolkit.readthedocs.io/) is a library for working with XMP metadata, as well as reading/writing XMP metadata stored in many different file formats.
+
+Python XMP Toolkit is wrapping [Exempi](https://libopenraw.freedesktop.org/exempi/) (using ctypes), a C/C++ XMP library based on Adobe XMP Toolkit, ensuring that future updates to the XMP standard are easily incorporated into the library with a minimum amount of work.
+
 ## Usage
 
 ```
@@ -30,18 +40,18 @@ optional arguments:
                             merge flickr annotations with xmp metadata
 ```
 
-Provide a path to a single image or a directory of many images. Use the -r flag to extract XMP metadata from the input files and save a csv file with metadata values.
+Provide a path to a single image or a directory of many images. Use the -r flag to extract XMP metadata from the input files and save a csv file with metadata values. The XMP properties to extract values from are defined in the SCHEMA dictionary.
 ```
 python xmp_tool.py -p path/to/images/ -r
 ```
 
-Use the -i flag and provide a path to a csv file to import XMP metadata. Use the -w flag to write any changes to the metadata in the file.
+Use the -i flag and provide a path to a csv file to import XMP metadata. Use the -w flag to write any changes to the metadata in the file. The XMP properties to import values to are defined in the SCHEMA dictionary.
 
 ```
 python xmp_tool.py -p path/to/images/ -i path/to/csv/metadata.csv -w
 ```
 
-Use the -f flag and provide a path to a directory with json files from Flickr to import XMP metadata. Use the -w flag to write any changes to the metadata in the file.
+Use the -f flag and provide a path to a directory with json files from Flickr to import XMP metadata. Use the -w flag to write any changes to the metadata in the file. The Flickr annotations and their mappings to XMP metadata properties are defined in the FLICKR_SCHEMA dictionary.
 ```
 python xmp_tool.py -p path/to/images/ -f path/to/directory/json/files/ -w
 ```
